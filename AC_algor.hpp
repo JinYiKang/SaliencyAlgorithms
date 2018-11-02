@@ -1,11 +1,14 @@
 ﻿#include "precomp.h"
 //*************************
-//Use function :AC_algorithms to process image,if you want to 
-//imshow the fianl map you got after process,use cv::normalize with norm type :NORM_MINMAX.
+//Use function : void AC_algorithms(const Mat& src, Mat& map, int R1_size = 1);
+//to process image,if you want to imshow the fianl map you got after process,
+//use cv::normalize with norm type :NORM_MINMAX.
 //*************************
-//The code is a implement of work:
-// Salient Region Detection and Segmentation 
+//The code is a implementation of work:
+//Salient Region Detection and Segmentation 
 //writen by Radhakrishna Achanta, Francisco Estrada, Patricia Wils, and Sabine SÄusstrunk
+//****************************
+//Implemented by Jin Yikang,2018/10/30
 
 //use Euclidean distance
 template<class T>
@@ -104,8 +107,9 @@ void ScalingLoop(const Mat& src, const Mat& integr, Mat& map, int R1_size, int R
 }
 
 //default size of r1 = 1
-void AC_algorithms(const Mat& src, Mat& map, int R1_size = 1) {
+void AC_algorithms(const Mat& src,Mat& dst, int R1_size = 1) {
 	CV_Assert(src.type() == CV_8UC3 || src.type() == CV_16SC3);
+
 	Mat _src;
 	cv::cvtColor(src, _src, COLOR_BGR2Lab);
 
@@ -117,11 +121,13 @@ void AC_algorithms(const Mat& src, Mat& map, int R1_size = 1) {
 	int R2_size = std::min(_src.rows, _src.cols) / 2;
 
 	//scale 
+	
 	Mat _map = Mat::zeros(_src.size(), CV_32FC1);
 	ScalingLoop(_src, integralImage, _map, R1_size, R2_size);
 
 	//get a copy
-	_map.copyTo(map);
+	_map.copyTo(dst);
+	cv::normalize(dst, dst, 0, 1, NORM_MINMAX);
 }
 
 

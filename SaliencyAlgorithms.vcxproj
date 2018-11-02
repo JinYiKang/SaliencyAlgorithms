@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClInclude Include="AC_algor.hpp" />
     <ClInclude Include="CA_algor.hpp" />
+    <ClInclude Include="HC_algor.hpp" />
     <ClInclude Include="precomp.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
 ﻿  main.cpp
   正在生成代码
-  1 of 91 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+  205 of 354 functions (57.9%) were compiled, the rest were copied from previous compilation.
+    186 functions were new in current compilation
+    26 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成
-  SaliencyAlgorithms.vcxproj -> F:\vs2015_code\SaliencyAlgorithms\Release\SaliencyAlgorithms.exe
+  SaliencyAlgorithms.vcxproj -> C:\Users\kksb\Documents\GitHub\SaliencyAlgorithms\Release\SaliencyAlgorithms.exe
